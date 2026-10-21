@@ -15,7 +15,7 @@ public class Material extends BaseEntity {
 
     private String  materialName;
     private DecimalFormat unitPrice;
-    private Integer availableStock;
+    private Integer setMaterialName;
 
     
 }
