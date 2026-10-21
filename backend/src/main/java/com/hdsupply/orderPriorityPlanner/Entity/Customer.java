@@ -19,6 +19,7 @@ public class Customer extends BaseEntity {
     private Long phoneNumber;
     private String address;
     private String emailId;
+    
 
 
     

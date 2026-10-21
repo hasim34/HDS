@@ -9,9 +9,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.hdsupply.orderPriorityPlanner.DTO.ErrorResponseDTO;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+     @ExceptionHandler(CustomerNotCreatedException.class)
+    public ErrorResponseDTO handleCustomerNotCreatedException(Exception ex){
+        ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(ex.getMessage(),"user Not created",HttpStatus.BAD_REQUEST.value(),LocalDateTime.now());
+        return errorResponseDTO;
 
+    }
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ErrorResponseDTO handleCustomerNotFoundException(Exception ex){
+        ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(ex.getMessage(),"user Not created",HttpStatus.BAD_REQUEST.value(),LocalDateTime.now());
+        return errorResponseDTO;
+
+    }
 
     @ExceptionHandler(Exception.class) // fallback for all exceptions
     public ResponseEntity<Map<String, Object>> handleGeneral(Exception ex) {
@@ -22,4 +35,5 @@ public class GlobalExceptionHandler {
         response.put("timestamp", LocalDateTime.now());
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    
 }
