@@ -10,14 +10,6 @@ import { useEffect } from 'react';
 
 
 function App() {
-
-  async function getData(params) {
-    const response = await 
-  }
-
-  useEffect(() => {
-    getData();
-  },[]);
   return (
     <>
       {/* <h1>Hello</h1> */}
