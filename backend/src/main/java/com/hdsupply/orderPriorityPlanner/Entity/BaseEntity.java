@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
@@ -15,9 +16,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@Entity
 @NoArgsConstructor 
 @AllArgsConstructor 
+@MappedSuperclass 
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
