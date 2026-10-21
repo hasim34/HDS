@@ -11,10 +11,10 @@ import com.hdsupply.orderPriorityPlanner.Entity.Job;
 @Repository 
 public interface JobRepository extends JpaRepository<Job,Long> {
     
-@Query("SELECT j FROM JOB j ORDER BY j.duedate")
+@Query("SELECT j FROM Job j ORDER BY j.dueDate")
 List<Job> getAllJob();
 
-List<Job> findByName(String name);
+List<Job> findByJobName(String name);
 }
 
 
