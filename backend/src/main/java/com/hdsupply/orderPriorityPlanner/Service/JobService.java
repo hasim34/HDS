@@ -49,53 +49,57 @@ public class JobService {
         // j1.getDueDate().compareTo(j2.getDueDate())});
         // jobList.sort((Job j1,Job j2)-> {return
         // j1.getDueDate().compareTo(j2.getDueDate())});
-        for (Job job : jobList) {
-            System.out.println(job.getJobName() + " " + job.getId() + " " + job.getCategory());
-            Long id = job.getId();
-            System.out.println("DMEOOOO");
-            // System.out.println(jobItemRepository.findAll());
-            // System.out.println("DEEMMMODHSOFH");
-            List<JobItem> jobitems = jobItemRepository.findAll();
-            List<JobItem> neededItems = new ArrayList<>();
-            // System.out.println(jobitems);
-            for (JobItem jobItem : jobitems) {
-                System.out.println();
-                if (jobItem.getJob().getId() == id) {
-                    neededItems.add(jobItem);
-                }
-            }
-            System.out.println(neededItems);
+        // for (Job job : jobList) {
+        //     System.out.println(job.getJobName() + " " + job.getId() + " " + job.getCategory());
+        //     Long id = job.getId();
+        //     System.out.println("DMEOOOO");
+        //     // System.out.println(jobItemRepository.findAll());
+        //     // System.out.println("DEEMMMODHSOFH");
+        //     List<JobItem> jobitems = new ArrayList<>();
+        //     jobitems = jobItemRepository.findAll();
+        //     // List<JobItem> jobitems = jobItemRepository.findAll();
+        //     List<JobItem> neededItems = new ArrayList<>();
+        //     // System.out.println(jobitems);
+        //     for (JobItem jobItem : jobitems) {
+        //         System.out.println();
+        //         if (jobItem.getJob().getId() == id) {
+        //             neededItems.add(jobItem);
+        //         }
+        //     }
+        //     System.out.println(neededItems);
 
-            System.out.println("Ceck ");
-            for (JobItem jobItem : neededItems) {
-                System.out.println("HIi" + jobItem);
-                // System.out.println(jobItem);
-                // System.out.println(jobItem.getMaterial().getMaterialName()+jobItem.getMaterial().getId());
-                // Long availableStock =
-                // materialRepository.findById(jobItem.getMaterial().getAvailableStock())
-                // .orElse(null);
-                // if (availableStock == null)
-                // throw new ResourceNotFoundException("NO material ");
+        //     System.out.println("Ceck ");
+        //     for (JobItem jobItem : neededItems) {
+        //         System.out.println("HIi" + jobItem);
+        //         // System.out.println(jobItem);
+        //         // System.out.println(jobItem.getMaterial().getMaterialName()+jobItem.getMaterial().getId());
+        //         // Long availableStock =
+        //         // materialRepository.findById(jobItem.getMaterial().getAvailableStock())
+        //         // .orElse(null);
+        //         // if (availableStock == null)
+        //         // throw new ResourceNotFoundException("NO material ");
 
-                // Material material =
-                // materialRepository.findById(jobItem.getMaterial().getId()).orElse(null);
-                // System.out.println("ihhi2");
+        //         // Material material =
+        //         // materialRepository.findById(jobItem.getMaterial().getId()).orElse(null);
+        //         // System.out.println("ihhi2");
 
-                // if (material == null)
-                // throw new ResourceNotFoundException("NO material ");
-                // if (material.getAvailableStock() < jobItem.getQuantity()) {
-                // throw new ResourceNotFoundException("Out of stock");
-                // }
-                // System.out.println("ihhi2");
+        //         // if (material == null)
+        //         // throw new ResourceNotFoundException("NO material ");
+        //         // if (material.getAvailableStock() < jobItem.getQuantity()) {
+        //         // throw new ResourceNotFoundException("Out of stock");
+        //         // }
+        //         // System.out.println("ihhi2");
 
-            }
-            System.out.println("HIII");
+        //     }
+        //     System.out.println("HIII");
 
-            job.setStatus(JobStatus.Ready);
-            // if(material.getAvailableStock()<)
-        }
-        System.out.println(jobList);
-        return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobItemRepository);
+        //     job.setStatus(JobStatus.Ready);
+        //     // if(material.getAvailableStock()<)
+        // }
+        // System.out.println(jobList);
+        // return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobItemRepository);
+        return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobList);
+
     }
 }
 
