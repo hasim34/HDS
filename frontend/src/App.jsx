@@ -15,7 +15,7 @@ function App() {
     
 
     <Routes>
-      <Route path="/materials" Component={<Materials/>}></Route>
+      <Route path="/materials" element={<Materials/>}></Route>
     </Routes> 
   </>
   );
