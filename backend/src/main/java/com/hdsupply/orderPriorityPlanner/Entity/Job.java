@@ -8,6 +8,8 @@ import com.hdsupply.orderPriorityPlanner.Entity.Enum.JobStatus;
 import com.hdsupply.orderPriorityPlanner.Entity.Enum.JobType;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
@@ -20,13 +22,15 @@ import lombok.Setter;
 @NoArgsConstructor 
 public class Job extends BaseEntity {
     private String jobName;
+    @Enumerated(EnumType.STRING)
     private JobType category;
     private LocalDateTime dueDate;
+    @Enumerated(EnumType.STRING)
     private JobStatus status;
 
     @ManyToOne
     @JoinColumn(name="customerId")
-    @JsonIgnore 
+    // @JsonIgnore 
     private Customer customer;
 
 
