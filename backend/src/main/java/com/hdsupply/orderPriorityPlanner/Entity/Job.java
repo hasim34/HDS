@@ -3,6 +3,7 @@ package com.hdsupply.orderPriorityPlanner.Entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hdsupply.orderPriorityPlanner.Entity.Enum.JobStatus;
 import com.hdsupply.orderPriorityPlanner.Entity.Enum.JobType;
 
@@ -25,6 +26,7 @@ public class Job extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="customerId")
+    @JsonIgnore 
     private Customer customer;
 
 

@@ -21,13 +21,14 @@ import lombok.Setter;
 @MappedSuperclass 
 public class BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-    @PrePersist
+ 
+    
+    @PrePersist 
     void created() {
         updatedAt = LocalDateTime.now();
         createdAt = LocalDateTime.now();

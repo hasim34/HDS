@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-
+    
     @ExceptionHandler(Exception.class) // fallback for all exceptions
     public ResponseEntity<Map<String, Object>> handleGeneral(Exception ex) {
         Map<String, Object> response = new HashMap<>();
