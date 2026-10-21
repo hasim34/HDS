@@ -11,31 +11,28 @@ import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter 
-@Getter 
-@Entity 
+@Setter
+@Getter
+@Entity
 public class BaseEntity {
-@Id 
-@GeneratedValue (strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-  
+
     private LocalDateTime createdAt;
-        private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
+    @PrePersist
+    void created() {
+        updatedAt = LocalDateTime.now();
+        createdAt = LocalDateTime.now();
 
-        @PrePersist 
-        void created(){
-            updatedAt=LocalDateTime.now();
-            createdAt=LocalDateTime.now();
+    }
 
-        }
-        @PreUpdate 
-        void updated(){
-            updatedAt=LocalDateTime.now();
+    @PreUpdate
+    void updated() {
+        updatedAt = LocalDateTime.now();
 
-        }
+    }
 
-
-
-    
 }
