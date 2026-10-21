@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter 
 @Setter 
 @NoArgsConstructor 
-public class Job extends BaseEntity {
+public class Job extends BaseEntity{
     private String jobName;
     @Enumerated(EnumType.STRING)
     private JobType category;

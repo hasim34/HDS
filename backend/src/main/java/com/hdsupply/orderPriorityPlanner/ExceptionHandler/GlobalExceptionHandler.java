@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
         return errorResponseDTO;
 
     }
-    @ExceptionHandler(CustomerNotFoundException.class)
+    @ExceptionHandler(ResourceNotFoundException.class)
     public ErrorResponseDTO handleCustomerNotFoundException(Exception ex){
         ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(ex.getMessage(),"user Not created",HttpStatus.BAD_REQUEST.value(),LocalDateTime.now());
         return errorResponseDTO;

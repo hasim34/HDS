@@ -7,5 +7,6 @@ import com.hdsupply.orderPriorityPlanner.Entity.JobItem;
 
 @Repository 
 public interface JobItemRepository extends JpaRepository<JobItem,Long>{
-    
+    // public List<JobItem> findByJob
+    // public List<JobItem> findByJob
 }
