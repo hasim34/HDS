@@ -35,18 +35,18 @@ public abstract class BaseEntity {
     private LocalDateTime updatedAt;
  
 
-    // @PrePersist 
-    // void created() { 
+    @PrePersist 
+    void created() { 
 
-    //     this.updatedAt = LocalDateTime.now();
-    //     this.createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+        createdAt = LocalDateTime.now();
 
-    // }
+    }
 
-    // @PreUpdate
-    // void updated() {
-    //     updatedAt = LocalDateTime.now();
+    @PreUpdate
+    void updated() {
+        updatedAt = LocalDateTime.now();
 
-    // }
+    }
 
 }
