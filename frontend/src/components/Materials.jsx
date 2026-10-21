@@ -40,7 +40,16 @@ const tableColumns = [
         dataIndex: "decrement",
         key: "decrement",
         render : (_,record) => (
-            <Button>-</Button>
+            <Button type="primary" danger>-</Button>
+        )
+
+    },
+    {
+        title: "Incremenet",
+        dataIndex: "increment",
+        key: "increment",
+        render : (_,record) => (
+            <Button type="primary">+</Button>
         )
 
     }
