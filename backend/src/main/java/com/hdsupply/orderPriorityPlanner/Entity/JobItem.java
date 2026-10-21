@@ -20,6 +20,7 @@ public class JobItem extends BaseEntity{
     @JoinColumn(name="materialId")
     private Material material;
     
+    private Integer quantity;
     
 
      
