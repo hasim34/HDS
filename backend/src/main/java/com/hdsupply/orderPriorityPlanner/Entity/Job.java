@@ -26,7 +26,7 @@ public class Job extends BaseEntity {
     @JoinColumn(name="customerId")
     private Customer customer;
 
-    private 
+
 
 
 

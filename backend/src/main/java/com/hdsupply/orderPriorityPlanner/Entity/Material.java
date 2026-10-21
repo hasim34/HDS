@@ -1,4 +1,4 @@
-package com.example.dummy.Entity;
+package com.hdsupply.orderPriorityPlanner.Entity;
 
 import java.text.DecimalFormat;
 
