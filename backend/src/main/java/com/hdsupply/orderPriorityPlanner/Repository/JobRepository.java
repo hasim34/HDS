@@ -13,5 +13,7 @@ public interface JobRepository extends JpaRepository<Job,Long> {
     
 @Query("SELECT j FROM JOB j ORDER BY j.duedate")
 List<Job> getAllJob();
+
+List<Job> findByName(String name);
 }
 
