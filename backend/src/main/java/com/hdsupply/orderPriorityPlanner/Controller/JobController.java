@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hdsupply.orderPriorityPlanner.DTO.SuccessRequestDTO;
 import com.hdsupply.orderPriorityPlanner.Service.JobService;
 
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -30,4 +32,9 @@ public class JobController {
         // return new SuccessRequestDTO(HttpStatus.ACCEPTED.value(),LocalDateTime.now(),"OK",null);
         // return null;
     }
+
+    // @PostMapping 
+    // public Job createJob(@RequestBody @Job){
+
+    // }
 }

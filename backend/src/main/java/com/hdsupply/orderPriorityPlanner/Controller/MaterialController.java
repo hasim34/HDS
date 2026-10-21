@@ -3,6 +3,7 @@ package com.hdsupply.orderPriorityPlanner.Controller;
 import java.util.List;
 
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.event.TransactionalEventListener;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +16,10 @@ import com.hdsupply.orderPriorityPlanner.DTO.MaterialDTO;
 import com.hdsupply.orderPriorityPlanner.Entity.Material;
 import com.hdsupply.orderPriorityPlanner.Service.MaterialService;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+// import lombok.extern.java.Log;
 
 @RestController 
 @RequiredArgsConstructor 
@@ -41,7 +43,9 @@ public class MaterialController {
     }
 
     @PutMapping 
+   
     public Material updateMaterial(Long id,@Valid MaterialDTO materialDTO){
+
         return materialService.updateMaterial(id,materialDTO);
     }
 

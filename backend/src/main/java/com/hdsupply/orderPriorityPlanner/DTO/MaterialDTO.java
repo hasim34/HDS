@@ -19,8 +19,8 @@ public class MaterialDTO {
     public String  materialName;
     @NotNull
     @Positive 
-    public DecimalFormat unitPrice;
+    public Long unitPrice;
     @NotNull 
     @Min(0)
-    public Integer availableStock;
+    public Long availableStock;
 }

@@ -22,7 +22,7 @@ import lombok.Setter;
 @Transactional
 public class MaterialServiceImpl implements MaterialService {
     private  final MaterialRepository materialRepository;
-
+    private final JobService jobService;
     @Override
     @Transactional(readOnly = true)
     public Material getMaterial(Long id){
@@ -47,13 +47,15 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
+     @org.springframework.transaction.annotation.Transactional 
     public Material updateMaterial(Long id, MaterialDTO material){
         Material existingMaterial = materialRepository.findById(id).orElseThrow(() -> new RuntimeException("No material found for this id : "+ id + "Hence cannot update")) ;
 
         existingMaterial.setMaterialName(material.getMaterialName());
         existingMaterial.setUnitPrice(material.getUnitPrice());
         existingMaterial.setAvailableStock(material.getAvailableStock());
-
+        //.reimplementing queue
+        jobService.implementQueue();
         return materialRepository.save(existingMaterial);
     }
 

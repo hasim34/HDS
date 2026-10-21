@@ -22,16 +22,26 @@ import com.hdsupply.orderPriorityPlanner.Repository.JobItemRepository;
 import com.hdsupply.orderPriorityPlanner.Repository.JobRepository;
 import com.hdsupply.orderPriorityPlanner.Repository.MaterialRepository;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
+// @AllArgsConstructor 
+// @NoArgsConstructor 
 public class JobService {
     private final JobRepository jobRepository;
     private final JobItemRepository jobItemRepository;
     private final CustomerRepository customerRepository;
     private final MaterialRepository materialRepository;
-
+    // public 
+    public JobService(JobRepository jobRepository,JobItemRepository jobItemRepository,CustomerRepository customerRepository,MaterialRepository materialRepository){
+        this.jobRepository=jobRepository;
+        this.jobItemRepository=jobItemRepository;
+        this.customerRepository=customerRepository;
+        this.materialRepository=materialRepository;
+    }
     public SuccessRequestDTO implementQueue() {
         // System.out.println("hi");
         List<Customer> customerLists = new ArrayList<>();
@@ -48,7 +58,7 @@ public class JobService {
         // Collections.sort(jobList,(Job j1,Job j2)-> {return
         // j1.getDueDate().compareTo(j2.getDueDate())});
         // jobList.sort((Job j1,Job j2)-> {return
-        // j1.getDueDate().compareTo(j2.getDueDate())});
+        // // j1.getDueDate().compareTo(j2.getDueDate())});
         // for (Job job : jobList) {
         //     System.out.println(job.getJobName() + " " + job.getId() + " " + job.getCategory());
         //     Long id = job.getId();
@@ -68,36 +78,34 @@ public class JobService {
         //     }
         //     System.out.println(neededItems);
 
-        //     System.out.println("Ceck ");
+        // //     System.out.println("Ceck ");
         //     for (JobItem jobItem : neededItems) {
         //         System.out.println("HIi" + jobItem);
         //         // System.out.println(jobItem);
-        //         // System.out.println(jobItem.getMaterial().getMaterialName()+jobItem.getMaterial().getId());
-        //         // Long availableStock =
-        //         // materialRepository.findById(jobItem.getMaterial().getAvailableStock())
-        //         // .orElse(null);
-        //         // if (availableStock == null)
-        //         // throw new ResourceNotFoundException("NO material ");
+        //         System.out.println(jobItem.getMaterial().getMaterialName()+jobItem.getMaterial().getId());
+        //         Material availableStock = materialRepository.findById(jobItem.getMaterial().getId()).orElse(null);
+        //         if (availableStock == null)
+        //         throw new ResourceNotFoundException("NO material ");
 
-        //         // Material material =
-        //         // materialRepository.findById(jobItem.getMaterial().getId()).orElse(null);
-        //         // System.out.println("ihhi2");
+        //         Material material =
+        //         materialRepository.findById(jobItem.getMaterial().getId()).orElse(null);
+        //         System.out.println("ihhi2");
 
-        //         // if (material == null)
-        //         // throw new ResourceNotFoundException("NO material ");
-        //         // if (material.getAvailableStock() < jobItem.getQuantity()) {
-        //         // throw new ResourceNotFoundException("Out of stock");
-        //         // }
-        //         // System.out.println("ihhi2");
+        //         if (material == null)
+        //         throw new ResourceNotFoundException("NO material ");
+        //         if (material.getAvailableStock() < jobItem.getQuantity()) {
+        //         throw new ResourceNotFoundException("Out of stock");
+        //         }
+        //         System.out.println("ihhi2");
 
         //     }
-        //     System.out.println("HIII");
+        // //     System.out.println("HIII");
 
-        //     job.setStatus(JobStatus.Ready);
-        //     // if(material.getAvailableStock()<)
+        // //     job.setStatus(JobStatus.Ready);
+        // //     // if(material.getAvailableStock()<)
         // }
-        // System.out.println(jobList);
-        // return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobItemRepository);
+        // // System.out.println(jobList);
+        // // return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobItemRepository);
         return new SuccessRequestDTO<>(HttpStatus.ACCEPTED.value(), LocalDateTime.now(), "OK", jobList);
 
     }
