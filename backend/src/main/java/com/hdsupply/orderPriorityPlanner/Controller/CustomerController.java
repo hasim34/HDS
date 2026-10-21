@@ -11,20 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hdsupply.orderPriorityPlanner.DTO.CustomerDTO;
 import com.hdsupply.orderPriorityPlanner.Entity.Customer;
 import com.hdsupply.orderPriorityPlanner.Service.CustomerService;
+
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 
 @RestController
 public class CustomerController {
     private CustomerService customerService;
 
- public CustomerController(CustomerService customerService){
+ public CustomerController( CustomerService customerService){
 
     this.customerService=customerService;
  }
 
 
     @PostMapping("/customer")
-    public String addUser(@RequestBody CustomerDTO customerDTO){
+    public String addUser(@Valid @RequestBody CustomerDTO customerDTO){
       return customerService.addUser(customerDTO);
 
     }
