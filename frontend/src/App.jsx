@@ -4,20 +4,18 @@ import { useState , useNavigate} from 'react'
 // import viteLogo from './assets/vite.svg'
 // import './App.css'
 import { Routes, Route, Link } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import { Button } from 'antd';
+import Materials from './components/Materials';
 
 
 function App() {
-  const navigate = useNavigate();
   return (
   <>
-    <Button onClick={navigate("/dashboard")}>
-      <Link to="/dashboard">Manager Dashboard</Link>
-    </Button>
+      {/* <h1>Hello</h1> */}
+      <Link to="/materials">Materials Dashboard</Link>
+    
 
     <Routes>
-      <Route path="/dashboard" Component={<Dashboard/>}></Route>
+      <Route path="/materials" Component={<Materials/>}></Route>
     </Routes> 
   </>
   );
