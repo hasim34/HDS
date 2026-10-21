@@ -6,4 +6,6 @@ import com.hdsupply.orderPriorityPlanner.Entity.Job;
 
 public interface JobRepository extends JpaRepository<Job,Long> {
     
+    
 }
+
